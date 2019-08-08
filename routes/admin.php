@@ -1,4 +1,4 @@
 <?php
 Route::get('/', function () {
-    echo view('welcome');
+    return view('admin.index');
 });
