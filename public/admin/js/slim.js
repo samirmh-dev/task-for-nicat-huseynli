@@ -50,7 +50,7 @@ $(function(){
   $('head').append('<link id="headerSkin" rel="stylesheet" href="">');
 
   // inject template options content
-  $.get('../settings.html', function(data){
+  /*$.get('../settings.html', function(data){
       $('body').append(data);
 
       if($.fn.perfectScrollbar) {
@@ -105,7 +105,7 @@ $(function(){
       } else {
         $('.sticky-sidebar[value="no"]').prop('checked', true);
       }
-  });
+  });*/
 
   // show/hide template options panel
   $('body').on('click', '.template-options-btn', function(e){
