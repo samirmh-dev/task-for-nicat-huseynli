@@ -8,16 +8,20 @@
             <div class="dropdown dropdown-c">
                 <a href="#" class="logged-user" data-toggle="dropdown">
                     <img src="http://via.placeholder.com/500x500" alt="">
-                    <span>Katherine</span>
+                    <span>{{ Auth::user()->name  }}</span>
                     <i class="fa fa-angle-down"></i>
                 </a>
                 <div class="dropdown-menu dropdown-menu-right">
                     <nav class="nav">
-                        <a href="page-profile.html" class="nav-link"><i class="icon ion-person"></i> View Profile</a>
-                        <a href="page-edit-profile.html" class="nav-link"><i class="icon ion-compose"></i> Edit Profile</a>
-                        <a href="page-activity.html" class="nav-link"><i class="icon ion-ios-bolt"></i> Activity Log</a>
-                        <a href="page-settings.html" class="nav-link"><i class="icon ion-ios-gear"></i> Account Settings</a>
-                        <a href="page-signin.html" class="nav-link"><i class="icon ion-forward"></i> Sign Out</a>
+                        <a class="nav-link" href="{{ route('logout') }}"
+                           onclick="event.preventDefault();
+                                                     document.getElementById('logout-form').submit();">
+                            <i class="icon ion-forward"></i>Çıxış
+                        </a>
+
+                        <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
+                            @csrf
+                        </form>
                     </nav>
                 </div><!-- dropdown-menu -->
             </div><!-- dropdown -->
