@@ -13,6 +13,8 @@
 
     <!-- Slim CSS -->
     <link rel="stylesheet" href="{{asset('admin/css/slim.css')}}">
+
+    @yield('stylesheets','')
 </head>
 <body>
 @include('admin.layouts.header')
@@ -27,6 +29,7 @@
     </div><!-- slim-mainpanel -->
 </div><!-- slim-body -->
 
+<script src="{{asset('js/admin.js')}}"></script>
 <script src="{{asset('admin/lib/jquery/js/jquery.js')}}"></script>
 <script src="{{asset('admin/lib/popper.js/js/popper.js')}}"></script>
 <script src="{{asset('admin/lib/bootstrap/js/bootstrap.js')}}"></script>
@@ -34,6 +37,8 @@
 <script src="{{asset('admin/lib/perfect-scrollbar/js/perfect-scrollbar.jquery.min.js')}}"></script>
 
 <script src="{{asset('admin/js/slim.js')}}"></script>
+
+@yield('scripts','')
 
 </body>
 </html>
