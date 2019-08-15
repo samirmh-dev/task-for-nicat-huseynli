@@ -40,13 +40,18 @@
                     </tr>
 
                     <tr>
+                        <th>{{$attributes['departure_date']}}</th>
+                        <td>{{$model->departure_date}}</td>
+                    </tr>
+
+                    <tr>
                         <th>{{$attributes['finish_date']}}</th>
                         <td>{{$model->finish_date}}</td>
                     </tr>
 
                     <tr>
-                        <th>{{$attributes['price']}}</th>
-                        <td>{{$model->price}}</td>
+                        <th>{{$attributes['start_location']}}</th>
+                        <td>{{$model->start_location}}</td>
                     </tr>
 
                     <tr>
@@ -55,8 +60,8 @@
                     </tr>
 
                     <tr>
-                        <th>{{$attributes['start_location']}}</th>
-                        <td>{{$model->start_location}}</td>
+                        <th>{{$attributes['price']}}</th>
+                        <td>{{$model->price}}</td>
                     </tr>
 
                     <tr>

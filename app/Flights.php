@@ -19,4 +19,8 @@ class Flights extends Model
     public function getFinishDateAttribute($value){
         return $value?date('Y-m-d H:i',strtotime($value)):null;
     }
+
+    public function getDepartureDateAttribute($value){
+        return $value?date('Y-m-d H:i',strtotime($value)):null;
+    }
 }

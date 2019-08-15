@@ -17,6 +17,7 @@ class CreateFlightsTable extends Migration
             $table->bigIncrements('id');
             $table->string('company_name');
             $table->string('type');
+            $table->dateTime('departure_date');
             $table->dateTime('finish_date');
             $table->float('price');
             $table->string('destination');

@@ -24,6 +24,7 @@
                         <th>@sortablelink('id',$attributes['id'])</th>
                         <th>@sortablelink('company_name',$attributes['company_name'])</th>
                         <th>@sortablelink('type',$attributes['type'])</th>
+                        <th>@sortablelink('departure_date',$attributes['departure_date'])</th>
                         <th>@sortablelink('finish_date',$attributes['finish_date'])</th>
                         <th>@sortablelink('price',$attributes['price'])</th>
                         <th>@sortablelink('destination',$attributes['destination'])</th>
@@ -44,16 +45,19 @@
                             <input type="search" name="type"  class="grid-search form-control form-control-sm @error('type') is-invalid @enderror" value="{{ request()->input('type') }}">
                         </td>
                         <td>
+                            <input type="search" name="departure_date"  class="grid-search form-control form-control-sm @error('departure_date') is-invalid @enderror" value="{{ request()->input('departure_date') }}">
+                        </td>
+                        <td>
                             <input type="search" name="finish_date"  class="grid-search form-control form-control-sm @error('finish_date') is-invalid @enderror" value="{{ request()->input('finish_date') }}">
                         </td>
                         <td>
-                            <input type="search" name="price"  class="grid-search form-control form-control-sm @error('price') is-invalid @enderror" value="{{ request()->input('price') }}">
+                            <input type="search" name="start_location"  class="grid-search form-control form-control-sm @error('start_location') is-invalid @enderror" value="{{ request()->input('start_location') }}">
                         </td>
                         <td>
                             <input type="search" name="destination"  class="grid-search form-control form-control-sm @error('destination') is-invalid @enderror" value="{{ request()->input('destination') }}">
                         </td>
                         <td>
-                            <input type="search" name="start_location"  class="grid-search form-control form-control-sm @error('start_location') is-invalid @enderror" value="{{ request()->input('start_location') }}">
+                            <input type="search" name="price"  class="grid-search form-control form-control-sm @error('price') is-invalid @enderror" value="{{ request()->input('price') }}">
                         </td>
                         <td>
                             <input type="search" name="count_passenger"  class="grid-search form-control form-control-sm @error('count_passenger') is-invalid @enderror" value="{{ request()->input('count_passenger') }}">
@@ -66,10 +70,11 @@
                             <td>{{$model->id}}</td>
                             <td>{{$model->company_name}}</td>
                             <td>{{$model->type}}</td>
+                            <td>{{$model->departure_date}}</td>
                             <td>{{$model->finish_date}}</td>
-                            <td>{{$model->price}}</td>
-                            <td>{{$model->destination}}</td>
                             <td>{{$model->start_location}}</td>
+                            <td>{{$model->destination}}</td>
+                            <td>{{$model->price}}</td>
                             <td>{{$model->count_passenger}}</td>
                             <td>
                                 <div class="btn-group">

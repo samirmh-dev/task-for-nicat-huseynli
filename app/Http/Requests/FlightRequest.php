@@ -26,6 +26,7 @@ class FlightRequest extends AppRequest
             self::SCENARIO_INSERT => [
                 'company_name' => 'required|max:255',
                 'type' => 'required|max:255',
+                'departure_date' =>'required|date_format:Y-m-d H:i',
                 'finish_date' =>'required|date_format:Y-m-d H:i',
                 'price' => 'required|numeric|min:0',
                 'destination' => 'required|max:255',
@@ -36,6 +37,7 @@ class FlightRequest extends AppRequest
             self::SCENARIO_UPDATE => [
                 'company_name' => 'required|max:255',
                 'type' => 'required|max:255',
+                'departure_date' =>'required|date_format:Y-m-d H:i',
                 'finish_date' =>'required|date_format:Y-m-d H:i',
                 'price' => 'required|numeric|min:0',
                 'destination' => 'required|max:255',
@@ -47,6 +49,7 @@ class FlightRequest extends AppRequest
                 'id' => 'integer|nullable',
                 'company_name' => 'string|nullable',
                 'type' => 'string|nullable',
+                'departure_date' =>'string|nullable',
                 'finish_date' =>'string|nullable',
                 'price' => 'numeric|nullable',
                 'destination' => 'string|nullable',
@@ -64,7 +67,8 @@ class FlightRequest extends AppRequest
             'id' => '№',
             'company_name' => 'Şirkətin adı',
             'type' => 'Təyyarənin tipi ',
-            'finish_date' =>'Təxmini eniş tarixi',
+            'departure_date' => 'Çıxış vaxtı',
+            'finish_date' =>'Təxmini eniş vaxtı',
             'price' => 'Qiymət',
             'destination' => 'Təyinat nöqtəsi',
             'start_location' => 'Çıxış nöqtəsi',

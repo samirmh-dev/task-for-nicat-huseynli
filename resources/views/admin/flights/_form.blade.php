@@ -29,6 +29,19 @@ $attributes = $request->attributes();
 
 
 <div class="form-group row mg-t-30">
+    <label class="col-md-3">{{$attributes['departure_date']}}: <span class="tx-danger">*</span></label>
+    <div class="col-md-9">
+        <input type="text" id="departure_date" name="departure_date" class="form-control @error('departure_date') parsley-error @enderror " placeholder="{{$attributes['departure_date']}} " value="{{ old('departure_date', $model->departure_date)  }}"  required autocomplete="off" style="margin-top: -12px">
+        @error('departure_date')
+        <ul class="parsley-errors-list filled">
+            <li class="parsley-required">{{ $message }}</li>
+        </ul>
+        @enderror
+    </div>
+</div>
+
+
+<div class="form-group row mg-t-30">
     <label class="col-md-3">{{$attributes['finish_date']}}: <span class="tx-danger">*</span></label>
     <div class="col-md-9">
         <input type="text" id="finish_date" name="finish_date" class="form-control @error('finish_date') parsley-error @enderror " placeholder="{{$attributes['finish_date']}} " value="{{ old('finish_date', $model->finish_date)  }}"  required autocomplete="off" style="margin-top: -12px">
@@ -42,10 +55,10 @@ $attributes = $request->attributes();
 
 
 <div class="form-group row mg-t-30">
-    <label class="col-md-3">{{$attributes['price']}}: <span class="tx-danger">*</span></label>
+    <label class="col-md-3">{{$attributes['start_location']}}: <span class="tx-danger">*</span></label>
     <div class="col-md-9">
-        <input type="number" step="0.01" name="price" class="form-control @error('price') parsley-error @enderror " placeholder="{{$attributes['price']}} " value="{{ old('price', $model->price)  }}"  required style="margin-top: -12px">
-        @error('price')
+        <input type="text" name="start_location" class="form-control @error('start_location') parsley-error @enderror " placeholder="{{$attributes['start_location']}} " value="{{ old('start_location', $model->start_location)  }}"  required style="margin-top: -12px">
+        @error('start_location')
         <ul class="parsley-errors-list filled">
             <li class="parsley-required">{{ $message }}</li>
         </ul>
@@ -68,10 +81,10 @@ $attributes = $request->attributes();
 
 
 <div class="form-group row mg-t-30">
-    <label class="col-md-3">{{$attributes['start_location']}}: <span class="tx-danger">*</span></label>
+    <label class="col-md-3">{{$attributes['price']}}: <span class="tx-danger">*</span></label>
     <div class="col-md-9">
-        <input type="text" name="start_location" class="form-control @error('start_location') parsley-error @enderror " placeholder="{{$attributes['start_location']}} " value="{{ old('start_location', $model->start_location)  }}"  required style="margin-top: -12px">
-        @error('start_location')
+        <input type="number" step="0.01" name="price" class="form-control @error('price') parsley-error @enderror " placeholder="{{$attributes['price']}} " value="{{ old('price', $model->price)  }}"  required style="margin-top: -12px">
+        @error('price')
         <ul class="parsley-errors-list filled">
             <li class="parsley-required">{{ $message }}</li>
         </ul>
@@ -121,7 +134,7 @@ $attributes = $request->attributes();
    <script type="text/javascript" src="{{ asset('vendor/jsvalidation/js/jsvalidation.js')}}"></script>
     {!! JsValidator::formRequest($request) !!}
     <script>
-        $('#finish_date').datetimepicker({
+        $('#finish_date, #departure_date').datetimepicker({
             format: "yyyy-mm-dd hh:ii",
             autoclose: true,
         });
