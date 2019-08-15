@@ -21,3 +21,10 @@ Route::post('logout', 'Auth\LoginController@logout')->name('logout');
 
 Route::resource('flights', 'FlightsController');
 
+
+// routing for hotels
+
+Route::resource('hotels', 'HotelsController');
+Route::post('/hotels/upload-image/','HotelsController@uploadImage');
+Route::post('/hotels/remove-image','HotelsController@removeImage');
+

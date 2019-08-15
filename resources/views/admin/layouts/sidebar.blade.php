@@ -5,8 +5,13 @@
         <li class="sidebar-nav-item">
             <a href="{{url('/')}}" class="sidebar-nav-link"><i class="icon ion-ios-home-outline"></i> Kontrol Panel</a>
         </li>
+
         <li class="sidebar-nav-item">
             <a href="{{url('/flights')}}" class="sidebar-nav-link"><i class="fa fa-plane"></i> Uçuşlar</a>
+        </li>
+
+        <li class="sidebar-nav-item">
+            <a href="{{url('/hotels')}}" class="sidebar-nav-link"><i class="fa fa-h-square"></i> Otellər</a>
         </li>
         {{--<li class="sidebar-nav-item with-sub">
             <a href="" class="sidebar-nav-link"><i class="icon ion-ios-book-outline"></i> Pages</a>

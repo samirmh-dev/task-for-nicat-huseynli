@@ -44,6 +44,7 @@ class FlightRequest extends AppRequest
                 'description' => 'required',
             ],
             self::SCENATIO_DEFAULT => [
+                'id' => 'integer|nullable',
                 'company_name' => 'string|nullable',
                 'type' => 'string|nullable',
                 'finish_date' =>'string|nullable',

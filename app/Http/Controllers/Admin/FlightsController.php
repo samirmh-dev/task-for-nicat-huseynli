@@ -62,7 +62,7 @@ class FlightsController extends Controller
     /**
      * Display the specified resource.
      *
-     * @param  \App\Flights  $flights
+     * @param  \App\Flights  $flight
      * @return \Illuminate\Http\Response
      */
     public function show(Flights $flight)
@@ -73,7 +73,7 @@ class FlightsController extends Controller
     /**
      * Show the form for editing the specified resource.
      *
-     * @param  \App\Flights  $flights
+     * @param  \App\Flights  $flight
      * @return \Illuminate\Http\Response
      */
     public function edit(FlightRequest $request, Flights $flight)
@@ -86,7 +86,7 @@ class FlightsController extends Controller
      * Update the specified resource in storage.
      *
      * @param  \Illuminate\Http\Request  $request
-     * @param  \App\Flights  $flights
+     * @param  \App\Flights  $flight
      * @return \Illuminate\Http\Response
      */
     public function update(FlightRequest $request, Flights $flight)
@@ -100,7 +100,7 @@ class FlightsController extends Controller
     /**
      * Remove the specified resource from storage.
      *
-     * @param  \App\Flights  $flights
+     * @param  \App\Flights  $flight
      * @return \Illuminate\Http\Response
      */
     public function destroy(Flights $flight)

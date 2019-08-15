@@ -96,7 +96,7 @@ $attributes = $request->attributes();
 <div class="form-group row mg-t-30">
     <label class="col-md-3">{{$attributes['description']}}: <span class="tx-danger">*</span></label>
     <div class="col-md-9">
-        <textarea name="description" class="form-control @error('description') parsley-error @enderror " placeholder="{{$attributes['description']}} " value="{{ old('description', $model->description)  }}"  required style="margin-top: -12px"></textarea>
+        <textarea name="description" class="form-control @error('description') parsley-error @enderror " placeholder="{{$attributes['description']}} " required style="margin-top: -12px">{{ old('description', $model->description)  }}</textarea>
         @error('description')
         <ul class="parsley-errors-list filled">
             <li class="parsley-required">{{ $message }}</li>
@@ -114,16 +114,9 @@ $attributes = $request->attributes();
 
 
 @section('stylesheets')
-{{--
-    <link href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datetimepicker/4.17.37/css/bootstrap-datetimepicker.min.css" rel="stylesheet">
---}}
 <link rel="stylesheet" href="{{asset('lib/datetimepicker/bootstrap-datetimepicker.css')}}">
 @stop
 @section('scripts')
-   {{-- <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.9.0/moment.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datetimepicker/4.17.37/js/bootstrap-datetimepicker.min.js"></script>
-    --}}
-
    <script src="{{asset('lib/datetimepicker/bootstrap-datetimepicker.min.js?t=20130302')}}"></script>
    <script type="text/javascript" src="{{ asset('vendor/jsvalidation/js/jsvalidation.js')}}"></script>
     {!! JsValidator::formRequest($request) !!}
