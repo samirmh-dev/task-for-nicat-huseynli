@@ -13,4 +13,9 @@ class HotelRooms extends Model
     public $guarded = ['id','created_at','updated_at'];
 
     public $sortable = ['id','number','floor','capacity'];
+
+    public function activeBooks(){
+        return $this->hasMany(HotelRoomBook::class,'hotel_room_id','id')
+                        ->where('departure_date','>',date('Y-m-d'));
+    }
 }

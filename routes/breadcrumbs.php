@@ -91,8 +91,8 @@ Breadcrumbs::for('hotels.rooms.new', function ($trail,$hotel) {
 
 // Home > Hotels > Rooms > Edit Room
 Breadcrumbs::for('hotels.rooms.edit', function ($trail,$hotel, $model) {
-    //$trail->parent('hotels.rooms',$hotel);
-    //$trail->push($model->number, "hotels/{$hotel->id}/rooms/{$model->id}");
+    $trail->parent('hotels.rooms',$hotel);
+    $trail->push($model->number, "hotels/{$hotel->id}/rooms/{$model->id}");
     $trail->push('Yenilə','');
 });
 
@@ -101,4 +101,37 @@ Breadcrumbs::for('hotels.rooms.edit', function ($trail,$hotel, $model) {
 Breadcrumbs::for('hotels.rooms.show', function ($trail,$hotel, $model) {
     $trail->parent('hotels.rooms',$hotel);
     $trail->push("№: ".$model->number, '');
+});
+
+
+/*
+ *
+ *
+ * Hotels > Books
+ * */
+// Home > Hotels >Books
+Breadcrumbs::for('hotels.books', function ($trail,$hotel) {
+    $trail->parent('hotels.show',$hotel);
+    $trail->push('Qeydiyyatlar', url("hotels/{$hotel->id}/books"));
+});
+
+
+// Home > Hotels > Books > New Book
+Breadcrumbs::for('hotels.books.new', function ($trail,$hotel) {
+    $trail->parent('hotels.books',$hotel);
+    $trail->push('Yeni Qeydiyyat', url("hotels/{$hotel->id}/books/create"));
+});
+
+// Home > Hotels > Books > Edit Book
+Breadcrumbs::for('hotels.books.edit', function ($trail,$hotel, $model) {
+    $trail->parent('hotels.books',$hotel);
+    $trail->push($model->id, "hotels/{$hotel->id}/books/{$model->id}");
+    $trail->push('Yenilə','');
+});
+
+
+// Home > Hotels > Books > Show Book
+Breadcrumbs::for('hotels.books.show', function ($trail,$hotel, $model) {
+    $trail->parent('hotels.books',$hotel);
+    $trail->push("№: ".$model->id, '');
 });

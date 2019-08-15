@@ -64,7 +64,7 @@
                                 <div class="btn-group">
                                     <a class="btn btn-primary" href="{{url("/hotels/{$model->id}")}}" title="Bax"><i class="fa fa-lg fa-eye"></i></a>
                                     <a class="btn btn-primary" href="{{url("/hotels/{$model->id}/edit")}}" title="Yenilə"><i class="fa fa-lg fa-edit"></i></a>
-                                    <a class="btn btn-primary" href="{{url("/hotels/{$model->id}/rooms")}}" title="Yenilə"><i class="fa fa-lg fa-trello"></i></a>
+                                    <a class="btn btn-primary" href="{{url("/hotels/{$model->id}/rooms")}}" title="Otaqlar"><i class="fa fa-lg fa-trello"></i></a>
                                     <a class="btn btn-primary" href="{{url("/hotels/{$model->id}")}}" title="Sil" data-method="DELETE" data-confirm="Bu elementi silmək istədiyinizə əminsiniz mi?"><i class="fa fa-lg fa-trash"></i></a>
                                 </div>
                             </td>

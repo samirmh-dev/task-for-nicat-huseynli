@@ -1,22 +1,22 @@
 @extends('admin.layouts.main')
 
-@section('title','Qeydiyyat  №: '.$model->number)
+@section('title','Otaq  №: '.$model->number)
 @section('breadcrumbs')
-    {{Breadcrumbs::render('hotels.books.show',$hotel, $model)}}
+    {{Breadcrumbs::render('hotels.rooms.show',$hotel, $model)}}
 @endsection
 
 
 @section('content')
-    <?php  $attributes = (new \App\Http\Requests\HotelRoomBookRequest())->attributes(); ?>
+    <?php  $attributes = (new \App\Http\Requests\HotelRoomsRequest())->attributes(); ?>
     <div class="section-wrapper">
         <div class="row">
             <div class="col-md-12">
                 <div class="title d-inline-flex">
-                    <label class="section-title">{{'Qeydiyyat  №: '.$model->id}}</label>
+                    <label class="section-title">{{'Otaq  №: '.$model->number}}</label>
                 </div>
                 <div class="actions d-inline-flex float-right">
-                    <a href="{{url("/hotels/{$hotel->id}/books/{$model->id}/edit")}}" class="btn btn-primary mr-2">Yenilə</a>
-                    <a href="{{url("/hotels/{$hotel->id}/books/{$model->id}")}}" class="btn btn-danger" data-method="DELETE" data-confirm="Bu elementi silmək istədiyinizə əminsiniz mi?">Sil</a>
+                    <a href="{{url("/hotels/{$hotel->id}/rooms/{$model->id}/edit")}}" class="btn btn-primary mr-2">Yenilə</a>
+                    <a href="{{url("/hotels/{$hotel->id}/rooms/{$model->id}")}}" class="btn btn-danger" data-method="DELETE" data-confirm="Bu elementi silmək istədiyinizə əminsiniz mi?">Sil</a>
                 </div>
             </div>
             <div class="col-md-12">
@@ -30,23 +30,23 @@
                     </tr>
 
                     <tr>
-                        <th>{{$attributes['hotel']}}</th>
+                        <th>{{$attributes['hotel_id']}}</th>
                         <td>{{$hotel->name}}</td>
                     </tr>
 
                     <tr>
-                        <th>{{$attributes['hotel_room_id']}}</th>
-                        <td>{{$model->room->number}}</td>
+                        <th>{{$attributes['number']}}</th>
+                        <td>{{$model->number}}</td>
                     </tr>
 
                     <tr>
-                        <th>{{$attributes['departure_date']}}</th>
-                        <td>{{$model->departure_date}}</td>
+                        <th>{{$attributes['floor']}}</th>
+                        <td>{{$model->floor}}</td>
                     </tr>
 
                     <tr>
-                        <th>{{$attributes['return_date']}}</th>
-                        <td>{{$model->return_date}}</td>
+                        <th>{{$attributes['capacity']}}</th>
+                        <td>{{$model->capacity}}</td>
                     </tr>
 
                     <tr>

@@ -47,17 +47,9 @@ class AppRequest extends FormRequest
         if(!($query instanceof Builder)){
             abort('500','`$query` must be intance of '.Builder::class);
         }
-        $rules = $this->validator->getRules();
+        $this->addFilter($query);
 
-        $filters = $this->validated();
-        foreach ($rules as $attr => $rule){
-            if(in_array('string',$rule) && !empty($filters[$attr])){
-                $query->where($attr, 'LIKE',"%{$filters[$attr]}%");
-            } elseif(isset($filters[$attr]) && $filters[$attr] != null) {
-                $query->where([$attr => $filters[$attr]]);
-            }
-        }
-        return $query->sortable()->paginate($this->paginate)->appends($filters);
+        return $query->sortable()->paginate($this->paginate)->appends($this->validated());
     }
 
 
@@ -73,5 +65,17 @@ class AppRequest extends FormRequest
 
     protected function scenario($scene){
         $this->scenario = $scene;
+    }
+
+    protected function addFilter(&$query){
+        $rules = $this->validator->getRules();
+        $filters = $this->validated();
+        foreach ($rules as $attr => $rule){
+            if(in_array('string',$rule) && !empty($filters[$attr])){
+                $query->where($attr, 'LIKE',"%{$filters[$attr]}%");
+            } elseif(isset($filters[$attr]) && $filters[$attr] != null) {
+                $query->where([$attr => $filters[$attr]]);
+            }
+        }
     }
 }

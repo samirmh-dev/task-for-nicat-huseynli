@@ -10,7 +10,7 @@ class Hotels extends Model
 {
     use Sortable,Notifiable;
 
-    public $guarded = ['id','created_at','updated_at','files'];
+    public $guarded = ['id','created_at','updated_at','files','roomNumbers'];
 
     public $sortable = ['id','name','stars','address','price'];
 
@@ -20,5 +20,13 @@ class Hotels extends Model
 
     public function rooms(){
         return $this->hasMany(HotelRooms::class,'hotel_id','id');
+    }
+
+    public function getRoomNumbersAttribute(){
+        return HotelRooms::where(['hotel_id' => $this->id])->orderBy("number")->pluck('number','id');
+    }
+
+    public function getRoomListAttribute(){
+        return HotelRooms::where(['hotel_id' => $this->id])->pluck('id');
     }
 }
