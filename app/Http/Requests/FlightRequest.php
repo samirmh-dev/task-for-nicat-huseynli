@@ -22,43 +22,46 @@ class FlightRequest extends AppRequest
      */
     public function rules()
     {
-        $rules = [
-            self::SCENARIO_INSERT => [
-                'company_name' => 'required|max:255',
-                'type' => 'required|max:255',
-                'departure_date' =>'required|date_format:Y-m-d H:i',
-                'finish_date' =>'required|date_format:Y-m-d H:i',
-                'price' => 'required|numeric|min:0',
-                'destination' => 'required|max:255',
-                'start_location' => 'required|max:255',
-                'count_passenger' => 'required|integer|min:0',
-                'description' => 'required',
-            ],
-            self::SCENARIO_UPDATE => [
-                'company_name' => 'required|max:255',
-                'type' => 'required|max:255',
-                'departure_date' =>'required|date_format:Y-m-d H:i',
-                'finish_date' =>'required|date_format:Y-m-d H:i',
-                'price' => 'required|numeric|min:0',
-                'destination' => 'required|max:255',
-                'start_location' => 'required|max:255',
-                'count_passenger' => 'required|integer|min:0',
-                'description' => 'required',
-            ],
-            self::SCENATIO_DEFAULT => [
-                'id' => 'integer|nullable',
-                'company_name' => 'string|nullable',
-                'type' => 'string|nullable',
-                'departure_date' =>'string|nullable',
-                'finish_date' =>'string|nullable',
-                'price' => 'numeric|nullable',
-                'destination' => 'string|nullable',
-                'start_location' => 'string|nullable',
-                'count_passenger' => 'integer|nullable',
-                'description' => 'string|nullable',
-            ]
-        ];
-        return $rules[$this->scenario]??$rules[self::SCENATIO_DEFAULT];
+        switch ($this->scenario){
+            case self::SCENARIO_INSERT:
+                return [
+                    'company_name' => 'required|max:255',
+                    'type' => 'required|max:255',
+                    'departure_date' =>'required|date_format:Y-m-d H:i',
+                    'finish_date' =>'required|date_format:Y-m-d H:i',
+                    'price' => 'required|numeric|min:0',
+                    'destination' => 'required|max:255',
+                    'start_location' => 'required|max:255',
+                    'count_passenger' => 'required|integer|min:0',
+                    'description' => 'required',
+                ];
+            case self::SCENARIO_UPDATE:
+                return [
+                    'company_name' => 'required|max:255',
+                    'type' => 'required|max:255',
+                    'departure_date' =>'required|date_format:Y-m-d H:i',
+                    'finish_date' =>'required|date_format:Y-m-d H:i',
+                    'price' => 'required|numeric|min:0',
+                    'destination' => 'required|max:255',
+                    'start_location' => 'required|max:255',
+                    'count_passenger' => 'required|integer|min:0',
+                    'description' => 'required',
+                ];
+            default:
+                return [
+                    'id' => 'integer|nullable',
+                    'company_name' => 'string|nullable',
+                    'type' => 'string|nullable',
+                    'departure_date' =>'string|nullable',
+                    'finish_date' =>'string|nullable',
+                    'price' => 'numeric|nullable',
+                    'destination' => 'string|nullable',
+                    'start_location' => 'string|nullable',
+                    'count_passenger' => 'integer|nullable',
+                    'description' => 'string|nullable',
+                ];
+
+        }
     }
 
     public function attributes()
