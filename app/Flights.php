@@ -23,4 +23,5 @@ class Flights extends Model
     public function getDepartureDateAttribute($value){
         return $value?date('Y-m-d H:i',strtotime($value)):null;
     }
+
 }

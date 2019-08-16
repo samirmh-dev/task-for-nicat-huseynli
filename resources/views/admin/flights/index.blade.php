@@ -26,9 +26,9 @@
                         <th>@sortablelink('type',$attributes['type'])</th>
                         <th>@sortablelink('departure_date',$attributes['departure_date'])</th>
                         <th>@sortablelink('finish_date',$attributes['finish_date'])</th>
-                        <th>@sortablelink('price',$attributes['price'])</th>
-                        <th>@sortablelink('destination',$attributes['destination'])</th>
                         <th>@sortablelink('start_location',$attributes['start_location'])</th>
+                        <th>@sortablelink('destination',$attributes['destination'])</th>
+                        <th>@sortablelink('price',$attributes['price'])</th>
                         <th>@sortablelink('count_passenger',$attributes['count_passenger'])</th>
                         <th>Əməliyyatlar</th>
                     </tr>
