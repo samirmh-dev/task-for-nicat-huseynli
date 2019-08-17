@@ -55,8 +55,8 @@ class HotelSearchRequest extends AppRequest
 
 
         //filter only rooms which not registered
-        $sql = Db::raw('sum( (hotel_room_books.departure_date BETWEEN ? AND ?)
-                                or (hotel_room_books.return_date BETWEEN ? AND ?) ) = 0');
+        $sql = Db::raw('IFNULL(sum( (hotel_room_books.departure_date BETWEEN ? AND ?)
+                                or (hotel_room_books.return_date BETWEEN ? AND ?) ),0) = 0');
 
         $query->havingRaw($sql,[$departure_date, $return_date, $departure_date, $return_date]);
 

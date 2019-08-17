@@ -25,7 +25,7 @@ class HomeController extends Controller
         $query = Hotels::query()->select('hotels.*')
                     ->join('hotel_rooms','hotels.id','=','hotel_rooms.hotel_id')
                     ->leftJoin('hotel_room_books','hotel_rooms.id','=','hotel_room_books.hotel_room_id')
-                    ->groupBy('hotels.id');
+                    ->orderBy('hotels.price','asc')->groupBy('hotel_rooms.id')->distinct();
 
         $models = $request->search($query);
         return view('frontend.home.hotel',['models' => $models]);
