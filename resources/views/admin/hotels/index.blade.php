@@ -26,7 +26,6 @@
                         <th>@sortablelink('stars',$attributes['stars'])</th>
                         <th>@sortablelink('address',$attributes['address'])</th>
                         <th>@sortablelink('price',$attributes['price'])</th>
-                        <th>@sortablelink('description',$attributes['description'])</th>
                         <th>Əməliyyatlar</th>
                     </tr>
                     </thead>
@@ -47,9 +46,6 @@
                         <td>
                             <input type="search" name="price"  class="grid-search form-control form-control-sm @error('price') is-invalid @enderror" value="{{ request()->input('price') }}">
                         </td>
-                        <td>
-                            <input type="search" name="description"  class="grid-search form-control form-control-sm @error('description') is-invalid @enderror" value="{{ request()->input('description') }}">
-                        </td>
                         <td></td>
                     </tr>
                     @foreach($models as $model)
@@ -59,7 +55,6 @@
                             <td>{{$model->stars}}</td>
                             <td>{{$model->address}}</td>
                             <td>{{$model->price}}</td>
-                            <td>{{$model->description}}</td>
                             <td>
                                 <div class="btn-group">
                                     <a class="btn btn-primary" href="{{url("/hotels/{$model->id}")}}" title="Bax"><i class="fa fa-lg fa-eye"></i></a>

@@ -67,13 +67,7 @@
                                                 </ul>
                                                 <div class="entry-content">
                                                     <div class="clearfix" style="margin-bottom: 10px;">
-                                                        <i class="i-rounded i-small i-bordered icon-wifi-full"  data-toggle="tooltip" data-placement="top" title="WiFi"></i>
-                                                        <i class="i-rounded i-small i-bordered icon-glass"  data-toggle="tooltip" data-placement="top" title="Bar"></i>
-                                                        <i class="i-rounded i-small i-bordered icon-line-shuffle"  data-toggle="tooltip" data-placement="top" title="Air Conditioner"></i>
-                                                        <i class="i-rounded i-small i-bordered icon-food"  data-toggle="tooltip" data-placement="top" title="Restaurant"></i>
-                                                        <i class="i-rounded i-small i-bordered noborder i-light icon-barbell"  data-toggle="tooltip" data-placement="top" title="Gym Unavailable"></i>
-                                                        <i class="i-rounded i-small i-bordered icon-bell"  data-toggle="tooltip" data-placement="top" title="Room Service"></i>
-                                                        <i class="i-rounded i-small i-bordered noborder i-light icon-coffee2"  data-toggle="tooltip" data-placement="top" title="Cafe Unavailable"></i>
+                                                        {!! $model->servicesWithIcon !!}
                                                     </div>
                                                     <p class="nobottommargin">{{$model->description}}</p>
                                                 </div>

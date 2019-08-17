@@ -31,6 +31,13 @@ class HotelsRequest extends AppRequest
                     'price' => 'required|numeric|min:0',
                     'description' => 'required',
                     'files' => 'required|array',
+                    'wifi' => 'boolean|nullable',
+                    'bar' => 'boolean|nullable',
+                    'air_conditioner' => 'boolean|nullable',
+                    'restaurant' => 'boolean|nullable',
+                    'gym' => 'boolean|nullable',
+                    'room_service' => 'boolean|nullable',
+                    'cafe' => 'boolean|nullable',
                 ];
             case self::SCENARIO_UPDATE:
                 return [
@@ -40,6 +47,13 @@ class HotelsRequest extends AppRequest
                     'price' => 'required|numeric|min:0',
                     'description' => 'required',
                     'files' => 'required|array',
+                    'wifi' => 'boolean|nullable',
+                    'bar' => 'boolean|nullable',
+                    'air_conditioner' => 'boolean|nullable',
+                    'restaurant' => 'boolean|nullable',
+                    'gym' => 'boolean|nullable',
+                    'room_service' => 'boolean|nullable',
+                    'cafe' => 'boolean|nullable',
                 ];
             default:
                 return [
@@ -64,6 +78,14 @@ class HotelsRequest extends AppRequest
             'price' => 'Qiymət',
             'description' => 'Qısa məzmun',
             'files' => 'Şəkillər',
+            'services' => 'Xidmətlər',
+            'wifi' => 'Wifi',
+            'bar' => 'Bar',
+            'air_conditioner' => 'Kondisioner',
+            'restaurant' => 'Restoran',
+            'gym' => 'İdman mərkəzi',
+            'room_service' => 'Otaq xidməti',
+            'cafe' => 'Kafe',
             'created_at' => 'Yaradılma tarixi',
             'updated_at' => 'Son yenilənmə tarixi',
         ];

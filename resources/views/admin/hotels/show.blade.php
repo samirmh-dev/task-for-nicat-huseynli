@@ -25,7 +25,7 @@
                     <tbody>
 
                     <tr>
-                        <th>{{$attributes['id']}}</th>
+                        <th width="200px">{{$attributes['id']}}</th>
                         <td>{{$model->id}}</td>
                     </tr>
 
@@ -52,6 +52,10 @@
                     <tr>
                         <th>{{$attributes['description']}}</th>
                         <td>{{$model->description}}</td>
+                    </tr>
+                    <tr>
+                        <th>{{$attributes['services']}}</th>
+                        <td>{!! $model->services !!}</td>
                     </tr>
                     <tr>
                         <th  >{{$attributes['files']}}</th>

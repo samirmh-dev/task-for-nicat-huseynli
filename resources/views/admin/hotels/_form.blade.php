@@ -82,6 +82,55 @@ foreach ($model->images as $image){
 
 
 
+<div class="form-group row mg-t-30" >
+    <label class="col-md-3">{{$attributes['services']}}: <span class="tx-danger">*</span></label>
+    <div class="col-md-9">
+        <div class="row">
+            <div class="col-md-12">
+                <label class="ckbox">
+                    <input type="checkbox" id="all-toggle-input"><span class="text-danger">Hamısını seç</span>
+                </label>
+                <hr>
+            </div>
+            <div class="col-md-6">
+                <label class="ckbox">
+                    <input type="hidden" name="wifi" value="0">
+                    <input type="checkbox" class="services" name="wifi" value="1" {{ old('wifi', $model->wifi) ?'checked':'' }}><span>{{$attributes['wifi']}}</span>
+                </label>
+                <label class="ckbox">
+                    <input type="hidden" name="bar" value="0">
+                    <input type="checkbox" class="services" name="bar" value="1" {{ old('bar', $model->bar) ?'checked':'' }}><span>{{$attributes['bar']}}</span>
+                </label>
+                <label class="ckbox">
+                    <input type="hidden" name="air_conditioner" value="0">
+                    <input type="checkbox" class="services" name="air_conditioner" value="1" {{ old('air_conditioner', $model->air_conditioner) ?'checked':'' }}><span>{{$attributes['air_conditioner']}}</span>
+                </label>
+                <label class="ckbox">
+                    <input type="hidden" name="restaurant" value="0">
+                    <input type="checkbox" class="services" name="restaurant" value="1" {{ old('restaurant', $model->restaurant) ?'checked':'' }}><span>{{$attributes['restaurant']}}</span>
+                </label>
+            </div>
+            <div class="col-md-6">
+                <label class="ckbox">
+                    <input type="hidden" name="gym" value="0">
+                    <input type="checkbox" class="services" name="gym" value="1" {{ old('gym', $model->gym) ?'checked':'' }}><span>{{$attributes['gym']}}</span>
+                </label>
+                <label class="ckbox">
+                    <input type="hidden" name="room_service" value="0">
+                    <input type="checkbox" class="services" name="room_service" value="1" {{ old('room_service', $model->room_service) ?'checked':'' }}><span>{{$attributes['room_service']}}</span>
+                </label>
+                <label class="ckbox">
+                    <input type="hidden" name="cafe" value="0">
+                    <input type="checkbox" class="services" name="cafe" value="1" {{ old('cafe', $model->cafe) ?'checked':'' }}><span>{{$attributes['cafe']}}</span>
+                </label>
+            </div>
+        </div>
+    </div>
+
+</div>
+
+
+
 <div class="form-group row">
     <div class="col-md-9 offset-3">
         <button type="submit" id="submit-button" class="btn btn-primary pd-x-20">Yadda saxla</button>
@@ -163,7 +212,7 @@ foreach ($model->images as $image){
             };
 
 
-            $('#hotels-form').submit(function (e) {
+        $('#hotels-form').submit(function (e) {
                 e.preventDefault();
                 for (let key in files){
                     let input = document.createElement('input');
@@ -174,6 +223,28 @@ foreach ($model->images as $image){
                 }
                 this.submit();
             })
+
+
+        //toggle checkboxes
+        $("#all-toggle-input").change(function () {
+            if($(this).is(":checked")){
+                $('input[type="checkbox"].services').not(":checked").prop('checked','checked');
+            } else {
+                $('input[type="checkbox"].services').filter(":checked").removeAttr('checked');
+            }
+        })
+
+        //set toggle button
+        if($('input[type="checkbox"].services').not(":checked").length == 0)
+            $("#all-toggle-input").prop('checked','checked');
+
+        //update toggle button
+        $('input[type="checkbox"].services').change(function () {
+            if($('input[type="checkbox"].services').not(":checked").length == 0)
+                $("#all-toggle-input").prop('checked','checked');
+            else
+                $("#all-toggle-input").removeAttr('checked');
+        })
 
     </script>
 

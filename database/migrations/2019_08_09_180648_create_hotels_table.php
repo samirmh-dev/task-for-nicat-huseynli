@@ -20,6 +20,13 @@ class CreateHotelsTable extends Migration
             $table->string('address');
             $table->float('price');
             $table->text('description');
+            $table->boolean('wifi')->default(false);
+            $table->boolean('bar')->default(false);
+            $table->boolean('air_conditioner')->default(false);
+            $table->boolean('restaurant')->default(false);
+            $table->boolean('gym')->default(false);
+            $table->boolean('room_service')->default(false);
+            $table->boolean('cafe')->default(false);
             $table->timestamps();
         });
     }
