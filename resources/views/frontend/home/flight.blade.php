@@ -5,7 +5,7 @@
 
         <!-- Page Title
         ============================================= -->
-        <section id="page-title" class="page-title-center page-title-parallax page-title-dark" style="background-image: url('/theme/images/hotels/page-title.jpg'); background-position: center center; padding: 100px 0;" data-bottom-top="background-position:0px 300px;" data-top-bottom="background-position:0px -300px;">
+        <section id="page-title" class="page-title-center page-title-parallax page-title-dark" style="background-image: url({{asset('/theme/images/hotels/page-title.jpg')}}); background-position: center center; padding: 100px 0;" data-bottom-top="background-position:0px 300px;" data-top-bottom="background-position:0px -300px;">
 
             <div class="container clearfix">
                 <h1>{{$models->total()}} Flights Found</h1>

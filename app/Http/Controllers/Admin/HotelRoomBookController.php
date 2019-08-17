@@ -25,8 +25,9 @@ class HotelRoomBookController extends Controller
     {
         $query = HotelRoomBook::query()
                     ->select('hotel_room_books.*')
-                    ->leftJoin('hotel_rooms','hotel_room_books.hotel_room_id','=','hotel_rooms.id')
-                    ->leftJoin('hotels','hotel_rooms.hotel_id','=','hotels.id')->distinct();
+                    ->join('hotel_rooms','hotel_room_books.hotel_room_id','=','hotel_rooms.id')
+                    ->join('hotels','hotel_rooms.hotel_id','=','hotels.id')
+                    ->where(['hotels.id' => $hotel->id]);
 
         if(!$request->get('sort')){
             $query->orderBy('hotel_room_books.created_at','desc');
@@ -70,7 +71,7 @@ class HotelRoomBookController extends Controller
      */
     public function show(Hotels $hotel, HotelRoomBook $book)
     {
-        return view('admin.hotels.rooms.show',['hotel' => $hotel,'model' => $book]);
+        return view('admin.hotels.books.show',['hotel' => $hotel,'model' => $book]);
     }
 
     /**

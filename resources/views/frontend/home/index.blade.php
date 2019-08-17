@@ -19,7 +19,6 @@
             </div>
 
             <div id="travel-slider-overlay">
-
                 <div class="vertical-middle">
 
                     <div class="container clearfix">
@@ -38,7 +37,7 @@
                                         <h4 class="fleft">Book your Flights</h4>
                                         <div class="clear"></div>
                                     </div>
-                                    <form action="{{url('/search/flight')}}" method="get" class="nobottommargin">
+                                    <form action="{{url('/search/flight')}}" method="get" id="flight-form" class="nobottommargin">
                                         <div class="row">
                                             <div class="col-md-6 col-12 bottommargin-sm">
                                                 <label for="">From</label>
@@ -101,27 +100,47 @@
                                         <h4 class="fleft">Book your Hotels</h4>
                                         <div class="clear"></div>
                                     </div>
-                                    <form action="{{url('/search/hotel')}}" method="post" class="nobottommargin">
+                                    <form action="{{url('/search/hotel')}}" id="hotel-form" class="nobottommargin">
                                         <div class="row">
                                             <div class="col-md-12 bottommargin-sm">
                                                 <label for="">City</label>
-                                                <input type="text" name="address" value="" class="sm-form-control" placeholder="Eg. Melbourne, Australia">
+                                                <input type="text" name="h_address" value="" class="sm-form-control" placeholder="Eg. Melbourne, Australia">
+                                                @error('h_address')
+                                                <span class="invalid-feedback d-block" role="alert">
+                                                    <strong>{{$message}}</strong>
+                                                </span>
+                                                @enderror
                                             </div>
                                             <div class="input-daterange travel-date-group col-md-9 bottommargin-sm">
                                                 <div class="row">
                                                     <div class="col-md-6 col-6">
                                                         <label for="">Departure</label>
-                                                        <input type="text" name="departure_date" value="" class="sm-form-control tleft dpicker" name="start" placeholder="DD/MM/YYYY" autocomplete="off">
+                                                        <input type="text" name="h_departure_date" value="" class="sm-form-control tleft dpicker" placeholder="DD/MM/YYYY" autocomplete="off">
+                                                        @error('h_departure_date')
+                                                        <span class="invalid-feedback d-block" role="alert">
+                                                            <strong>{{$message}}</strong>
+                                                        </span>
+                                                        @enderror
                                                     </div>
                                                     <div class="col-md-6 col-6">
                                                         <label for="">Return</label>
-                                                        <input type="text" name="return_date" value="" class="sm-form-control tleft dpicker" name="end" placeholder="DD/MM/YYYY" autocomplete="off">
+                                                        <input type="text" name="h_return_date" value="" class="sm-form-control tleft dpicker" placeholder="DD/MM/YYYY" autocomplete="off">
+                                                        @error('h_return_date')
+                                                        <span class="invalid-feedback d-block" role="alert">
+                                                            <strong>{{$message}}</strong>
+                                                        </span>
+                                                        @enderror
                                                     </div>
                                                 </div>
                                             </div>
                                             <div class="col-md-3 bottommargin-sm">
                                                 <label for="">Rooms</label>
-                                                <input type="number" min="1" max="10" value="" class="sm-form-control" name="end" placeholder="2">
+                                                <input type="number" name="h_capacity" min="1" max="10" value="" class="sm-form-control"placeholder="2">
+                                                @error('h_capacity')
+                                                <span class="invalid-feedback d-block" role="alert">
+                                                    <strong>{{$message}}</strong>
+                                                </span>
+                                                @enderror
                                             </div>
                                             <div class="col-md-12">
                                                 <button class="button button-3d nomargin rightmargin-sm">Search Hotels</button>
@@ -139,12 +158,16 @@
 @endsection
 
 @section('scripts')
+
+    <script type="text/javascript" src="{{ asset('vendor/jsvalidation/js/jsvalidation.js')}}"></script>
+    {!! JsValidator::formRequest(\App\Http\Requests\FlightSearchRequest::class, '#flight-form') !!}
+    {!! JsValidator::formRequest(\App\Http\Requests\HotelSearchRequest::class, '#hotel-form') !!}
+
     <script>
         $('.dpicker').datepicker({
             format: "dd/mm/yyyy",
             autoclose: true,
             startDate: "today",
         });
-
     </script>
 @endsection

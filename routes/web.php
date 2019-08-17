@@ -17,4 +17,7 @@ Route::get('/', 'HomeController@index');
 Route::get('/search/flight','HomeController@searchFlight');
 
 
+Route::get('/search/hotel','HomeController@searchHotel');
+
+
 

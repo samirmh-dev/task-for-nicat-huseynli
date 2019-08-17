@@ -8,8 +8,6 @@ use function foo\func;
 
 class FlightSearchRequest extends AppRequest
 {
-
-    public $paginate = 1;
     /**
      * Determine if the user is authorized to make this request.
      *
@@ -69,10 +67,6 @@ class FlightSearchRequest extends AppRequest
                 ->where('destination' ,'LIKE', "%$this->destination%")
                 ->where('departure_date' ,'LIKE', $this->convertDate($this->departure_date)."%");
         }
-
-
-
-        //dd($query->toSql());
     }
 
     protected function convertDate($date){
